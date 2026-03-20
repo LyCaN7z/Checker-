@@ -10,6 +10,6 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY site_checker_bot_v7.py .
+COPY site_checker_botv7.py .
 
-CMD ["python", "site_checker_bot_v7.py"]
+CMD ["python", "site_checker_botv7py"]
