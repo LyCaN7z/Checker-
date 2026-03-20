@@ -149,8 +149,9 @@ class BrowserPool:
             self._pw = await async_playwright().__aenter__()
             for _ in range(self._size):
                 b = await self._pw.chromium.launch(
-                    headless=True,
-                    args=["--no-sandbox","--disable-setuid-sandbox",
+    headless=True,
+    executable_path="/usr/bin/chromium",
+    args=["--no-sandbox","--disable-setuid-sandbox",
                           "--disable-blink-features=AutomationControlled",
                           "--disable-dev-shm-usage","--disable-web-security"],
                 )
