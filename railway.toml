@@ -1,0 +1,20 @@
+[build]
+builder = "nixpacks"
+
+[build.nixpacksPlan.phases.setup]
+nixPkgs = ["chromium", "nss", "at-spi2-atk", "cups", "libxkbcommon",
+           "pango", "cairo", "alsa-lib", "libdrm", "mesa",
+           "libgbm", "expat", "xorg.libXcomposite", "xorg.libXdamage",
+           "xorg.libXrandr", "xorg.libXcursor", "xorg.libXi",
+           "xorg.libXtst", "xorg.libX11", "xorg.libXext",
+           "xorg.libxcb"]
+
+[build.nixpacksPlan.phases.install]
+cmds = [
+  "pip install -r requirements.txt",
+  "playwright install chromium --with-deps"
+]
+
+[deploy]
+restartPolicyType = "on_failure"
+restartPolicyMaxRetries = 3
